@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import android.widget.ImageButton
 
 class Menu : AppCompatActivity() {
     @SuppressLint("WrongViewCast")
@@ -12,9 +12,9 @@ class Menu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        val mainbtn = findViewById<Button>(R.id.buttonMain)
+        val mainbtn = findViewById<ImageButton>(R.id.buttonMain)
         mainbtn.setOnClickListener {
-            startActivity(Intent(this@Menu,MainActivity::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
         }
     }
 }

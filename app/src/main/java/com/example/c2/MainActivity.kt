@@ -5,32 +5,38 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("WrongViewCast")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val menubtn = findViewById<Button>(R.id.buttonMenu)
+
+
+        val menubtn = findViewById<ImageButton>(R.id.buttonMenu)
         menubtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity,Menu::class.java))
+            startActivity(Intent(this,Menu::class.java))
         }
 
-        val deliverybtn = findViewById<Button>(R.id.buttonDelivery)
+        val deliverybtn = findViewById<ImageButton>(R.id.buttonDelivery)
         deliverybtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity,Delivery::class.java))
+            startActivity(Intent(this,Delivery::class.java))
         }
 
-        val pickUpbtn = findViewById<Button>(R.id.buttonPickup)
+        val pickUpbtn = findViewById<ImageButton>(R.id.buttonPickup)
         pickUpbtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity,pickUp::class.java))
+            startActivity(Intent(this,pickUp::class.java))
         }
 
-        val mainbtn = findViewById<Button>(R.id.buttonMain)
+        val mainbtn = findViewById<ImageButton>(R.id.buttonMain)
         mainbtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity,MainActivity::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
         }
+
 
     }
+
+
 }

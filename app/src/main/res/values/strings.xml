@@ -9,4 +9,6 @@
     <string name="mainIcon">dorset</string>
     <string name="iconthree">moto</string>
     <string name="iconfour">menu</string>
+    <string name="sample_text">Sample text</string>
+    <string name="btn_moreText">more</string>
 </resources>

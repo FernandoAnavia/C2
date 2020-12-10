@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 
 class Delivery : AppCompatActivity() {
     @SuppressLint("WrongViewCast")
@@ -12,9 +13,9 @@ class Delivery : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_delivery)
 
-        val mainbtn = findViewById<Button>(R.id.buttonMain)
+        val mainbtn = findViewById<ImageButton>(R.id.buttonMain)
         mainbtn.setOnClickListener {
-            startActivity(Intent(this@Delivery,MainActivity::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
         }
 
     }
