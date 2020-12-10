@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">C2</string>
+    <string name="textone">Start your order here:</string>
+    <string name="texttwo">Pre-order</string>
+    <string name="textthree">Collection</string>
+    <string name="textfour">Opens at 17:00   Delivery from €2.00 </string>
+    <string name="textfive">See menu</string>
+    <string name="iconone">delivery</string>
+    <string name="mainIcon">dorset</string>
+    <string name="iconthree">moto</string>
+    <string name="iconfour">menu</string>
 </resources>
