@@ -1,11 +1,11 @@
 package com.example.c2.Model
 
-class menuGroup {
+class ItemGroup {
 
     var headerTitle:String?=null
 
     var listItem:ArrayList<ItemData>?=null
 
-
+    constructor(){}
 
 }

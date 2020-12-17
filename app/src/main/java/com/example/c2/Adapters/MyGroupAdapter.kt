@@ -9,13 +9,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.c2.Model.ItemData
-import com.example.c2.Model.menuGroup
+import com.example.c2.Model.ItemGroup
 import com.example.c2.R
 
-class GroupAdapter (private val context:Context,
-                    private val dataList:List<menuGroup>?):
-    RecyclerView.Adapter<GroupAdapter.MyViewHolder>() {
+class MyGroupAdapter (private val context:Context,
+                      private val dataList:List<ItemGroup>?):
+    RecyclerView.Adapter<MyGroupAdapter.MyViewHolder>() {
     inner class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
         var itemTitle:TextView
         var recycler_view_list: RecyclerView
@@ -39,15 +38,19 @@ class GroupAdapter (private val context:Context,
     override fun onBindViewHolder(myViewHolder: MyViewHolder, position: Int) {
         myViewHolder.itemTitle.text = dataList!![position].headerTitle
 
-        var items = dataList[position].listItem
-        val itemListAdapter = ItemAdapter (context, items)
+        val items = dataList[position].listItem
+        val itemListAdapter = MyItemAdapter (context, items)
 
         myViewHolder.recycler_view_list.setHasFixedSize(true)
         myViewHolder.recycler_view_list.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         myViewHolder.recycler_view_list.adapter = itemListAdapter
 
         myViewHolder.recycler_view_list.isNestedScrollingEnabled = false
-        Toast.makeText(context,"Btn More " + dataList!![position].headerTitle,Toast.LENGTH_SHORT).show()
+        myViewHolder.btnMore.setOnClickListener{
+            Toast.makeText(context,"Btn More: "+dataList[position].headerTitle,Toast.LENGTH_SHORT).show()
+        }
+
+
     }
 
     override fun getItemCount(): Int {

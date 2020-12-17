@@ -8,13 +8,15 @@
 
     <ImageView
         android:id="@+id/imageItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/ic_launcher_foreground"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"/>
 
     <TextView
         android:id="@+id/nameItem"
@@ -28,8 +30,8 @@
 
     <TextView
         android:id="@+id/descrptionItem"
-        android:layout_width="159dp"
-        android:layout_height="64dp"
+        android:layout_width="64dp"
+        android:layout_height="62dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
@@ -49,14 +51,5 @@
         app:layout_constraintStart_toEndOf="@+id/descrptionItem"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Switch"
-        app:layout_constraintBottom_toBottomOf="@+id/descrptionItem"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/descrptionItem" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

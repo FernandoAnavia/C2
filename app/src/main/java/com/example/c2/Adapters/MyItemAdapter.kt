@@ -4,19 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.c2.Interface.itemClickListener
+import com.example.c2.Interface.IItemClickListener
 import com.example.c2.Model.ItemData
 import com.example.c2.R
 import com.squareup.picasso.Picasso
-import java.text.FieldPosition
 
-class ItemAdapter (private val context: Context,
-                   private val itemList:List<ItemData>?):RecyclerView.Adapter<ItemAdapter.MyViewHolder>(){
+class MyItemAdapter (private val context: Context,
+                     private val itemList:List<ItemData>?):RecyclerView.Adapter<MyItemAdapter.MyViewHolder>(){
     inner class MyViewHolder(view:View):RecyclerView.ViewHolder(view), View.OnClickListener {
 
         var txt_name: TextView
@@ -24,11 +22,11 @@ class ItemAdapter (private val context: Context,
         var txt_desc: TextView
         var txt_price: TextView
 
-        lateinit var iItemClickListener: itemClickListener
+        lateinit var iItemClickListener: IItemClickListener
 
-        fun setClick(iitemClickListener: itemClickListener)
+        fun setClick(iItemClickListener: IItemClickListener)
         {
-            this.iItemClickListener = iitemClickListener
+            this.iItemClickListener = iItemClickListener
         }
 
 
@@ -42,7 +40,7 @@ class ItemAdapter (private val context: Context,
         }
 
         override fun onClick(view: View?) {
-            iItemClickListener.onClickListener(view!!,adapterPosition)
+            iItemClickListener.onItemClickListener(view!!,adapterPosition)
 
         }
 
@@ -60,11 +58,13 @@ class ItemAdapter (private val context: Context,
         myViewHolder.txt_price.setText(itemList[position].price!!)
         Picasso.get().load(itemList[position].image).into(myViewHolder.img_item)
 
-        myViewHolder.setClick(object:itemClickListener{
+        myViewHolder.setClick(object: IItemClickListener{
 
-
-            override fun onClickListener(view: View, position: Int) {
+            override fun onItemClickListener(view: View, position: Int) {
+                Toast.makeText(context,""+itemList[position].name,Toast.LENGTH_SHORT).show()
             }
+
+
         })
     }
 
