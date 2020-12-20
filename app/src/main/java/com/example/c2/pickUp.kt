@@ -1,5 +1,8 @@
 package com.example.c2
 
+//16336 Elshy Xiomara Rosado Jimenez
+//20344 Jose Fernando Gonzalez Anavia
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +25,8 @@ class pickUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pick_up)
+
+        //Googlemaps fragment
 
         mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(OnMapReadyCallback {

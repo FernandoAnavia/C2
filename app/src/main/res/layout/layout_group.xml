@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- 20344 Jose Fernando Gonzalez Anavia   16336 Elshy Xiomara Rosado Jimenez -->
+
+
 <androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -35,6 +39,8 @@
 
 
     </RelativeLayout>
+
+    <!-- Group recycler view format -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_view"

@@ -1,5 +1,8 @@
 package com.example.c2
 
+//16336 Elshy Xiomara Rosado Jimenez
+//20344 Jose Fernando Gonzalez Anavia
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -27,6 +30,8 @@ class Delivery : AppCompatActivity() {
         }
 
     }
+
+    //Saving data and shared preferences
 
         private fun saveData () {
 

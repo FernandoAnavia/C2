@@ -1,5 +1,8 @@
 package com.example.c2
 
+//16336 Elshy Xiomara Rosado Jimenez
+//20344 Jose Fernando Gonzalez Anavia
+
 import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +27,7 @@ import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
 
+
 class Menu : AppCompatActivity(), IFirebaseLoadListener {
 
     private lateinit var cartDataSource: CartDataSource
@@ -37,6 +41,7 @@ class Menu : AppCompatActivity(), IFirebaseLoadListener {
         countCartItem()
     }
 
+    //invokes the database Json from Firebase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +58,7 @@ class Menu : AppCompatActivity(), IFirebaseLoadListener {
         }
 
 
-        /*
+        /* THIS WAS DELETED DUE TO AN ERROR WITH THE SHOPPING CART DATABASE
         cartDataSource = LocalCartDataSource(CartDatabase.getInstance(this).cartDAO())
 
 
@@ -66,6 +71,8 @@ class Menu : AppCompatActivity(), IFirebaseLoadListener {
 
 
     }
+
+    //Get the data from Firebase server
 
     private fun getFirebaseData() {
 
@@ -97,6 +104,8 @@ class Menu : AppCompatActivity(), IFirebaseLoadListener {
 
         })
     }
+
+
 
     override fun onFirebaseLoadSuccess(itemGroupList: List<ItemGroup>) {
         val adapter = MyGroupAdapter(this,itemGroupList)

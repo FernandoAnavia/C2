@@ -1,3 +1,6 @@
+//20344 Jose Fernando Gonzalez Anavia
+//16336 Elshy Xiomara Rosado Jimenez
+
 package com.example.c2.Adapters
 
 import android.content.Context
@@ -28,7 +31,7 @@ import org.w3c.dom.Text
 class MyItemAdapter (private val context: Context,
                      private val itemList:List<ItemData>?):RecyclerView.Adapter<MyItemAdapter.MyViewHolder>(){
 
-    /*
+    /* THIS WAS DELETED DUE TO AN ERROR WITH THE SHOPPING CART DATA BASE
     private val compositeDisposable : CompositeDisposable
     private val cartDataSource : CartDataSource
 

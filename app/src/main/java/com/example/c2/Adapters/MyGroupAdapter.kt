@@ -1,4 +1,9 @@
+//20344 Jose Fernando Gonzalez Anavia
+//16336 Elshy Xiomara Rosado Jimenez
+
 package com.example.c2.Adapters
+
+
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -29,12 +34,13 @@ class MyGroupAdapter (private val context:Context,
 
         }
     }
-
+    //creates the recycler view
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.layout_group,p0,false)
         return MyViewHolder(view)
     }
 
+    //assigns the data from the Data base
     override fun onBindViewHolder(myViewHolder: MyViewHolder, position: Int) {
         myViewHolder.itemTitle.text = dataList!![position].headerTitle
 
@@ -52,7 +58,7 @@ class MyGroupAdapter (private val context:Context,
 
 
     }
-
+    //Size of the group adapter (it changes dinamically according to the database
     override fun getItemCount(): Int {
         return dataList?.size ?:0
     }
