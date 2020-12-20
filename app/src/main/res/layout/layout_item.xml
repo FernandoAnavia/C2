@@ -2,21 +2,23 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
 
     <ImageView
         android:id="@+id/imageItem"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"/>
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
         android:id="@+id/nameItem"
@@ -29,27 +31,86 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/descrptionItem"
-        android:layout_width="64dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageItem"
-        app:layout_constraintStart_toEndOf="@+id/imageItem"
-        app:layout_constraintTop_toBottomOf="@+id/nameItem" />
-
-    <TextView
         android:id="@+id/priceItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/descrptionItem"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageItem"
+        app:layout_constraintTop_toBottomOf="@+id/nameItem" />
 
+    <Button
+        android:id="@+id/buttondDec"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:text="-"
+        android:textSize="7sp"
+        app:layout_constraintEnd_toStartOf="@+id/ValueText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@+id/imageItem"
+        app:layout_constraintTop_toBottomOf="@+id/priceItem"></Button>
+
+
+    <TextView
+        android:id="@+id/ValueText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/buttondDec"
+        app:layout_constraintEnd_toStartOf="@+id/buttonInc"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttondDec"
+        app:layout_constraintTop_toTopOf="@+id/buttondDec"></TextView>
+
+    <Button
+        android:id="@+id/buttonInc"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="20dp"
+        android:text="+"
+        android:textSize="7sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ValueText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ValueText"
+        app:layout_constraintTop_toTopOf="@+id/ValueText"></Button>
+
+    <Button
+        android:id="@+id/buttonCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Add to cart"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageItem"
+        app:layout_constraintTop_toBottomOf="@+id/buttondDec"></Button>
+
+    <TextView
+        android:id="@+id/realPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="200dp"
+        android:inputType="number"
+        android:visibility="gone"
+        android:layout_marginEnd="316dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

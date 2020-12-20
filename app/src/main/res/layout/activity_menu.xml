@@ -4,22 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#A2BEEB">
+    android:background="#A2BEEB"
+    tools:context=".MainActivity">
 
+
+    <com.andremion.counterfab.CounterFab
+        android:id="@+id/counterFab2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:backgroundTint="#E91E63"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
 
     <ImageButton
         android:id="@+id/buttonMain"
         android:layout_width="77dp"
         android:layout_height="70dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="24dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/mainIcon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/counterFab2"
+        app:layout_constraintEnd_toStartOf="@+id/counterFab2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/counterFab2"
         app:srcCompat="@drawable/mainicon" />
 
     <androidx.recyclerview.widget.RecyclerView

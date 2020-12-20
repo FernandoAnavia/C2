@@ -5,23 +5,37 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.c2.Adapters.MyGroupAdapter
+import com.example.c2.Database.CartDataSource
+import com.example.c2.Database.CartDatabase
+import com.example.c2.Database.LocalCartDataSource
+import com.example.c2.EventBus.CountCartEvent
 import com.example.c2.Interface.IFirebaseLoadListener
 import com.example.c2.Model.ItemData
 import com.example.c2.Model.ItemGroup
 import com.google.firebase.database.*
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_menu.*
+import kotlinx.android.synthetic.main.layout_item.*
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 
 class Menu : AppCompatActivity(), IFirebaseLoadListener {
+
+    private lateinit var cartDataSource: CartDataSource
 
     lateinit var dialog: AlertDialog
     lateinit var IFirebaseLoadListener: IFirebaseLoadListener
     lateinit var myData: DatabaseReference
 
+    override fun onResume () {
+        super.onResume()
+        countCartItem()
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +47,17 @@ class Menu : AppCompatActivity(), IFirebaseLoadListener {
         IFirebaseLoadListener = this
 
 
-
-
         val mainbtn = findViewById<ImageButton>(R.id.buttonMain)
         mainbtn.setOnClickListener {
             startActivity(Intent(this,MainActivity::class.java))
         }
+
+
+        /*
+        cartDataSource = LocalCartDataSource(CartDatabase.getInstance(this).cartDAO())
+
+
+         */
 
         my_recycler_view.setHasFixedSize(true)
         my_recycler_view.layoutManager = LinearLayoutManager(this)
@@ -83,12 +102,27 @@ class Menu : AppCompatActivity(), IFirebaseLoadListener {
         val adapter = MyGroupAdapter(this,itemGroupList)
         my_recycler_view.adapter = adapter
         dialog.dismiss()
+
+
     }
 
     override fun onFirebaseLoadFailed(message: String) {
         dialog.dismiss()
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
     
+
+    }
+
+    @Subscribe (sticky = true, threadMode = ThreadMode.MAIN)
+    fun onCountCartEvent (event: CountCartEvent)
+    {
+        if(event.isSuccess)
+        {
+            countCartItem()
+        }
+    }
+
+    private fun countCartItem () {
 
     }
 
